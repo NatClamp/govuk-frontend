@@ -7,22 +7,22 @@
 @import "../label/label";
 
 @include govuk-exports("govuk/component/file-upload") {
-  $spacing-unit: govuk-spacing(1);
+  $component-padding: govuk-spacing(1);
 
   .govuk-file-upload {
     @include govuk-font($size: 19);
     @include govuk-text-colour;
     @include govuk-focusable;
-    padding-top: $spacing-unit;
-    padding-bottom: $spacing-unit;
+    padding-top: $component-padding;
+    padding-bottom: $component-padding;
 
     &:focus {
       // "Yank" the padding with negative margin to avoid a jump
       // when element is focused
-      margin-right: -$spacing-unit;
-      margin-left: -$spacing-unit;
-      padding-right: $spacing-unit;
-      padding-left: $spacing-unit;
+      margin-right: -$component-padding;
+      margin-left: -$component-padding;
+      padding-right: $component-padding;
+      padding-left: $component-padding;
       // Use `box-shadow` to add border instead of changing `border-width`
       // (which changes element size) and since `outline` is already used for the
       // yellow focus state.
@@ -40,10 +40,10 @@
     // to recognise `focus-within` and don't set any styles from the block
     // when it's a selector.
     &:focus-within {
-      margin-right: -$spacing-unit;
-      margin-left: -$spacing-unit;
-      padding-right: $spacing-unit;
-      padding-left: $spacing-unit;
+      margin-right: -$component-padding;
+      margin-left: -$component-padding;
+      padding-right: $component-padding;
+      padding-left: $component-padding;
 
       // Emulate `govuk-focusable` mixin styles for this component in FF
       outline: $govuk-focus-width solid $govuk-focus-colour;
@@ -56,16 +56,26 @@
   .govuk-file-upload--error {
     // As `upload--error` has border, it needs to have the same padding as
     // the standard focused element.
-    margin-right: -$spacing-unit;
-    margin-left: -$spacing-unit;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
+    margin-right: -$component-padding;
+    margin-left: -$component-padding;
+    padding-right: $component-padding;
+    padding-left: $component-padding;
     border: $govuk-border-width-form-element-error solid $govuk-error-colour;
 
     &:focus {
       border-color: $govuk-input-border-colour;
       // Remove `box-shadow` inherited from `:focus` as `file-upload--error`
       // already has the thicker border.
+      box-shadow: none;
+    }
+
+    // Repeat `:focus` styles to prevent error styles from being applied when
+    // input button is pressed as this moves the focus to "within".
+    // This can't be set together with `:focus` as all versions of IE fail
+    // to recognise `focus-within` and don't set any styles from the block
+    // when it's a selector.
+    &:focus-within {
+      border-color: $govuk-input-border-colour;
       box-shadow: none;
     }
   }

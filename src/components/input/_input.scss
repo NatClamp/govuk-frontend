@@ -26,9 +26,10 @@
     appearance: none;
 
     &:focus {
-      // Double the border by adding its width again. Use `box-shadow` to do
-      // this instead of changing `border-width` (which changes element size) and
-      // since `outline` is already used for the yellow focus state.
+      // Double the border by adding its width again. Use `box-shadow` for this // instead of changing `border-width` - this is for consistency with
+      // components such as textarea where we avoid changing `border-width` as
+      // it will change the element size. Also, `outline` cannot be utilised
+      // here as it is already used for the yellow focus state.
       box-shadow: inset 0 0 0 $govuk-border-width-form-element;
 
       @include govuk-if-ie8 {
