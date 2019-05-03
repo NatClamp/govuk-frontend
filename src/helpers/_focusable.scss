@@ -52,11 +52,12 @@
   }
   color: $govuk-text-colour;
   background-color: $govuk-focus-colour;
-  box-shadow:
-  -5px -1px 0 1px govuk-colour("yellow"),
-  5px -1px 0 1px govuk-colour("yellow"),
-  -3px 1px 0 3px govuk-colour("black"),
-  3px 1px 0 3px govuk-colour("black");
+  // sass-lint:disable indentation
+  box-shadow: -5px -1px 0 1px govuk-colour("yellow"),
+              5px -1px 0 1px govuk-colour("yellow"),
+              -3px 1px 0 3px govuk-colour("black"),
+              3px 1px 0 3px govuk-colour("black");
+  // sass-lint:enable indentation
   // When link is focussed, hide the default underline since the
   // box shadow adds the "underline"
   text-decoration: none;
