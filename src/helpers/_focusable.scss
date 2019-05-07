@@ -52,9 +52,6 @@
     $_padding-bottom: 0;
   }
 
-  $_box-shadow-spread: ($_padding-top + $_padding-bottom) / 2;
-  $_box-shadow-offset-y: $_box-shadow-spread - $_padding-top;
-
   // When colours are overridden, for example when users have a dark mode,
   // backgrounds and box-shadows disappear, so we need to ensure there's a
   // transparent outline which will be set to a visible colour.
@@ -85,6 +82,11 @@
       // sass-lint:enable indentation
     }
   } @else {
+    $_highlight-spread: ($_padding-top + $_padding-bottom) / 2;
+    $_highlight-offset-y: $_highlight-spread - $_padding-top;
+    $_highlight-padding-left-right: ($_padding-left-right - $_highlight-spread);
+    $_border-offset-y: ($_padding-bottom + $_border-width);
+
     // When colours are overridden, for example when users have a dark mode,
     // backgrounds and box-shadows disappear, so we need to ensure there's a
     // transparent outline which will be set to a visible colour.
@@ -94,10 +96,10 @@
     // Default if or it's inline-block or block
     // box-shadow
     // sass-lint:disable indentation
-    box-shadow: -($_padding-left-right - $_box-shadow-spread) $_box-shadow-offset-y 0 ($_box-shadow-spread) $govuk-focus-colour,
-                ($_padding-left-right - $_box-shadow-spread) $_box-shadow-offset-y 0 ($_box-shadow-spread) $govuk-focus-colour,
-                -$_padding-left-right ($_padding-bottom + $_border-width) $_border-color,
-                $_padding-left-right ($_padding-bottom + $_border-width) $_border-color;
+    box-shadow: -$_highlight-padding-left-right $_highlight-offset-y 0 $_highlight-spread $govuk-focus-colour,
+                $_highlight-padding-left-right $_highlight-offset-y 0 $_highlight-spread $govuk-focus-colour,
+                -$_padding-left-right $_border-offset-y $_border-color,
+                $_padding-left-right $_border-offset-y $_border-color;
     // sass-lint:disable indentation
   }
 }
