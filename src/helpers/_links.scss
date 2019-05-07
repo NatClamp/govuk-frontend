@@ -8,9 +8,9 @@
 ///
 /// @access public
 
-@mixin govuk-link-common {
+@mixin govuk-link-common($display) {
   @include govuk-typography-common;
-  @include govuk-focusable-text-link;
+  @include govuk-focusable-text-link($display);
 }
 
 /// Default link style mixin

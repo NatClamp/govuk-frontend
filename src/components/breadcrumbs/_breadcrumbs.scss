@@ -109,7 +109,7 @@
   }
 
   .govuk-breadcrumbs__link {
-    @include govuk-link-common;
+    @include govuk-link-common("inline-block");
     @include govuk-link-style-text;
   }
 }

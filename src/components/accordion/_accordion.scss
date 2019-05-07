@@ -70,7 +70,7 @@
     // This is styled to look like a link not a button
     .govuk-accordion__open-all {
       @include govuk-font($size: 16);
-      @include govuk-link-common;
+      @include govuk-link-common("inline");
       display: inline;
       border-width: 0;
       color: $govuk-link-colour;
@@ -110,7 +110,7 @@
 
     // Buttons within the headers don’t need default styling
     .govuk-accordion__section-button {
-      @include govuk-link-common;
+      @include govuk-link-common("inline-block");
       width: 100%;
       margin-top: 0;
       margin-bottom: 0;

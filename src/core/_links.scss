@@ -5,7 +5,7 @@
 @include govuk-exports("govuk/core/links") {
 
   %govuk-link {
-    @include govuk-link-common;
+    @include govuk-link-common("inline");
     @include govuk-link-style-default;
     @include govuk-link-print-friendly;
   }
